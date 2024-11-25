@@ -92,6 +92,12 @@ git add .
 git rm --cached file-name
 ```
 
+### To delete
+
+```bash
+git rm "file-name"
+```
+
 ### Commit
 
 ```bash
