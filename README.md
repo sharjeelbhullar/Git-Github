@@ -26,26 +26,37 @@ Github is a web-based hosting service for Git repositories. Github is an online 
 
 ### Check your git version
 
+```bash
 git --version
+```
 
 ### Repository
 
+```bash
 git status
+```
 
 ### Currect Directory
 
+```bash
 pwd (present working directory)
+```
 
 ### Change Directory
 
+```bash
 cd "name"
 (to check are you in the particular directory, use pwd command)
+```
 
 ### Creating a repository
 
 Always run first command.
+
+```bash
 git status
 git init
+```
 
 ### Flow
 
@@ -57,30 +68,40 @@ git init(Working Directory)---->git add(Staging Area)---->git commit(repo)--->gi
 
 ### Add File
 
+```bash
 git init
 git add file1-name file2-name...
 git status
 (add takes a floder into staging area)
+```
 
 ### Add all files
 
+```bash
 git add .
 (After commiting files are staged)
+```
 
 ### To unstage
 
+```bash
 git rm --cached file-name
+```
 
 ### Commit
 
+```bash
 git commit -m "message"
 (After it, reached in repo but needed to push code on github)
+```
 
 ### Logs
 
+```bash
 git log
 git log --oneline
 (using oneline commits shows in one line)
+```
 
 Note: After comnpletion of a required smaller or unit step in your project commit it.
 Use present tense imperative form in commit(instructions) to codebase, eg: "Add footer to code." (Recommended)
@@ -106,34 +127,48 @@ This command will show all branches and in which branch you are.
 
 ### Creation of new branch
 
+```bash
 git branch "name"
+```
 
 ### Switch to another branch
 
+```bash
 git switch "name"
+```
 
 ### To check use
 
+```bash
 git log
+```
 
 After doing some changes in y branch and after that if we switched to x branch all of those changes in y branch will not show in x branch unless and until we merge it, because each branch will work on its own file without messing with other branches.
 
 ### For switching at a specific branch if not existed then create it
 
+```bash
 git switch -c "name"
+```
+
 In this case if "branch-name" doesn't exist, in that scenario will not only create it but also switch to that branch.
 
 ### For check any branch is existed or not
 
+```bash
 git checkout "name"
+```
+
 If you want to check any branch exist or not, by running this command if branch with that name exist then your head will switched to that branch otherwise it will say not existed.
 
 ## Merging
 
 ### Fast-Forward Merge
 
+```bash
 git checkout main(master)
 git merge "name"
+```
 
 In that case we're first switching our head to main branch and merging any x-branch into main branch.
 
@@ -145,17 +180,141 @@ You have to manually resolve conflicts, there is no automatic options or command
 
 ### Rename a branch
 
+```bash
 git branch -m "old-branch-name" "new-branch-name"
+```
 
 ### Delete a branch
 
+```bash
 git branch -d "branch-name"
+```
 
 ### Checkout a branch
 
+```bash
 git checkout "branch-name"
+```
 
 ### List all branches
 
+```bash
 git branch
 (All git branches will be listed)
+```
+
+### Merging conflicts
+
+Goto main(master) branch and write command
+
+```bash
+git merge "name"
+```
+
+By using it will fix git branches. But in case changes occur in main branch and some x branch as well. It will create conflicts.
+
+### Abort Merge
+
+```bash
+git merge --abort
+```
+
+Merge conflicts can be resolved by using vs code as well but you always need to merge conflicts manually. There is no automatic way to resolve conflicts.
+Note: After fixing conflicts, add and commit files
+
+## Diff Stash and Tags
+
+### Git diff
+
+It is informative command that shows the difference between two commits. Git consider the changed versions of same file as two different files. Then it gives names to these two files and shows the difference between them.
+
+```bash
+git diff
+```
+
+By running git diff nothing will happen.
+
+### To check difference between staging of file
+
+```bash
+git diff --staged
+```
+
+### Comparing between branches
+
+```bash
+git diff <branch-one-name> <branch-two-name>
+```
+
+This command compares the difference between two branches. There is also an alternative way of writing it.
+
+```bash
+git diff branch branch-one-name..branch-two-name
+(common syntax)
+```
+
+### Comparing specific commits
+
+```bash
+git diff commit-one-hash commit-two-hash
+or
+git diff commit-one-hash..commit-two-hash
+```
+
+## Git Stash
+
+It is a way to save your changes in a temporary location. It is useful when you want to make changes to a file don't want to commit them yet. You can then come back to the file later and apply the changes.
+
+```bash
+git stash
+```
+
+### Naming the stash
+
+```bash
+git stash save "message"
+(It works like a stack i.e; most recent on top)
+```
+
+### View the stash listed
+
+```bash
+git stash list
+```
+
+### Apply the stash
+
+```bash
+git stash apply
+(top stash will be applied)
+```
+
+### Apply the specific stash
+
+```bash
+git stash apply stash @{number}
+```
+
+### Applying & Dropping the stash
+
+```bash
+git stash pop
+```
+
+### Drop the stash
+
+```bash
+git stash drop
+```
+
+### Applying stash to a specific branch
+
+```bash
+git stash apply stash @{num} <branch-name>
+```
+
+### Clearing the stash
+
+```bash
+git stash clear
+```
