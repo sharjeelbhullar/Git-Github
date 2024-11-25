@@ -60,11 +60,15 @@ git init
 
 ### Flow
 
+```bash
 Write -> Add -> Commit
+```
 
 ### Git complete flow
 
+```bash
 git init(Working Directory)---->git add(Staging Area)---->git commit(repo)--->git push(github)
+```
 
 ### Add File
 
@@ -317,4 +321,110 @@ git stash apply stash @{num} <branch-name>
 
 ```bash
 git stash clear
+```
+
+## Github
+
+Github is a web-based Git repository hosting service. It is a popular platform for developers to collaborate on projects and to share code. Github provides a user-friendly interface for managing and tracking changes to your code, as well as a platform for hosting and sharing your projects with others.
+
+Some other alternative of Github are:
+
+- Gitlab
+- Bitbucket
+- Azure Repos
+- Gitea
+
+But mainstream popular tool these days is Github.
+
+### Github Account
+
+Creating a Github account is free and easy. You can create an account by visiting the [Github website](https://github.com/) and clicking on the “Sign up” button. You will be prompted to enter your email address and password, and then you will be redirected to the Github homepage.
+
+Once you have created an account, you can start using Github to host and collaborate on your projects. Github provides a variety of features and tools that make it easy to manage and track your code, including issues, pull requests, and code reviews.
+
+### Configure your config file
+
+If you havn't done it already, you need to configure your git config file. You can do this by running the following command:
+
+```bash
+git config --global user.email "your-email@example.com"
+git config --global user.name "Your Name"
+```
+
+This will set your email and name as your global settings. You can change these settings later by running the following command:
+
+```bash
+git config --global user.email "your-email@example.com"
+git config --global user.name "Your Name"
+```
+
+For checking config settings:
+
+```bash
+git config --list
+```
+
+### Adding code to remote repository
+
+```bash
+git init
+git add <files>
+git commit -m "commit message"
+```
+
+### Check remote url setting
+
+```bash
+git remote -v
+```
+
+### Add remote repository
+
+```bash
+git remote add origin <remote-url>
+```
+
+### Push code to remote repository
+
+```bash
+git push origin main
+```
+
+### Setup an upstream remote
+
+```bash
+git remote add upstream <remote-url>
+```
+
+Or shorthand
+
+```bash
+git remote add -u <remote-url>
+```
+
+You can do this at the time of pushing your code to the remote repository.
+
+```bash
+git push -u origin main
+```
+
+### Get code from remote repository
+
+There are two ways to get code from a remote repository:
+
+- fetch the code
+- pull the code
+
+Fetch the code means that you are going to download the code from the remote repository to your local repository. Pull the code means that you are going to download the code from the remote repository and merge it with your local repository.
+
+### Fetch code
+
+```bash
+git fetch <remote-name>
+```
+
+### Pull code
+
+```bash
+git pull origin main
 ```
